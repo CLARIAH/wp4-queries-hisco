@@ -22,8 +22,8 @@ WHERE {
   # if you also want 'raw' (not nicely spelled) job titles comment this out
   # OPTIONAL {hisco:job skos:hiddenLabel ?label} 
   
-  # change language: e.g. "se" for Swedish
-  FILTER(lang(?label) = "nl") 
+  # uncomment below to select Dutch titles only (or other language: e.g. change "nl" into "se" for Swedish)
+  # FILTER(lang(?label) = "nl") 
 } 
 
 LIMIT 10
