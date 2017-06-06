@@ -2,24 +2,28 @@
 #+ tags:
 #+      - hisco
 
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX hisco: <http://data.socialhistory.org/vocab/hisco/>
-PREFIX entry: <http://data.socialhistory.org/vocab/hisco/entry/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX hisco: <http://data.socialhistory.org/resource/hisco/>
+PREFIX hisco-cat: <http://data.socialhistory.org/resource/hisco/code/hisco/>
 
-## show all community coded entries for a given hisco
+## show all community coded entries for a given hisco (and their provenance)
 ## limited to a specific language
 
-SELECT DISTINCT ?entry ?label ?hisco ?description ?source
-FROM <http://iisg.amsterdam/graph/hisco/open/v3/> 
+SELECT DISTINCT ?code ?job ?label ?provenance
 WHERE { 
-  ?entry skos:member entry:entryCollection .
-    OPTIONAL {?hisco skos:prefLabel ?label} 
-    OPTIONAL {?entry skos:closeMatch ?hisco}
-    OPTIONAL {?hisco skos:definition ?description}
-    OPTIONAL {?entry prov:wasQuotedFrom ?source}
-    # change language: e.g. "se" for Swedish
-    FILTER(lang(?label) = "en") 
+  hisco:category skos:member ?code .
+  ?code skos:member ?job .
+  hisco-cat:99900 skos:member ?job .
+  ?job skos:prefLabel ?label .
+  ?job prov:wasDerivedFrom ?provenance .
+  
+  # if you also want 'raw' (not nicely spelled) job titles comment this out
+  # OPTIONAL {hisco:job skos:hiddenLabel ?label} 
+  
+  # change language: e.g. "se" for Swedish
+  FILTER(lang(?label) = "nl") 
 } 
 
-LIMIT 100
+LIMIT 10
