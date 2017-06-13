@@ -1,1 +1,1 @@
-https://api.druid.datalegend.net/datasets/rlzijdeman/HISCO/containers/iapHISCO/sparql
+http://virtuoso.clariah-sdh.eculture.labs.vu.nl/sparql
