@@ -1,4 +1,5 @@
-summary: give the HISCO category and source data for a given occupation
+#+ summary: give the HISCO category and source data for a given occupation
+#+ endpoint: http://virtuoso.clariah-sdh.eculture.labs.vu.nl/sparql
 #+ tags:
 #+      -hisco
 
