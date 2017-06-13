@@ -15,6 +15,6 @@ SELECT distinct ?label ?hisco WHERE {
  hisco:category skos:member ?hisco.
  ?hisco skos:member ?job . 
   FILTER(lang(?label) = "es") # filter on a given language, like "en", "nl", "se" .
-  FILTER regex(?label, "^arquitecto", "i") . # uncomment this line if you want to filter for a specific occupation
+  FILTER regex(?label, "^ar", "i") . # uncomment this line if you want to filter for a specific occupation
 } 
 LIMIT 50
