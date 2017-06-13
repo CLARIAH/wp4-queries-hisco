@@ -1,9 +1,8 @@
 #+ summary: retrieve HISCO for job titles in Spanish and HISCAM scores 
 #+ tags:
-#+      - hisco
-#+      - hiscam
-#+ enumerate:
-#+   - language
+#+   - hisco
+#+   - hiscam
+
 
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -18,7 +17,7 @@ SELECT distinct ?label ?hisco ?hiscam_value WHERE {
  OPTIONAL {hisco:job skos:hiddenLabel ?label} . # comment this out if you're just looking for 'proper' occupational titles
  hisco:category skos:member ?hisco.
  ?hisco skos:member ?job . 
-  FILTER(lang(?label) = ?_language) . # filter on a given language, like "es", "nl", "se"
+  FILTER(lang(?label) = "es") . # filter on a given language, like "es", "nl", "se"
   # FILTER regex(?label, "^ar", "i") . # uncomment this line if you want to filter for a specific (part of a) job title
  ?hisco hiscam:u1 ?hiscam_value .
 } 
