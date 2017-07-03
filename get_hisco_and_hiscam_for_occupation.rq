@@ -11,7 +11,9 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX hisco: <http://data.socialhistory.org/resource/hisco/>
 PREFIX hiscam: <http://data.socialhistory.org/resource/hiscam/v131/>
 
-SELECT distinct ?label ?hisco ?hiscam_value WHERE {
+SELECT distinct ?label ?hisco ?hiscam_value 
+FROM <https://api.druid.datalegend.net/datasets/rlzijdeman/HISCO/containers/iapHISCO/sparql> 
+WHERE {
  hisco:jobHoard skos:member ?job .
  ?job skos:prefLabel ?label . # for standardized titles 
  OPTIONAL {hisco:job skos:hiddenLabel ?label} . # comment this out if you're just looking for 'proper' occupational titles
