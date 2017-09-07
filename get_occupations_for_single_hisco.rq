@@ -15,7 +15,7 @@ SELECT DISTINCT ?code ?job ?label ?provenance
 WHERE { 
   hisco:category skos:member ?code .
   ?code skos:member ?job .
-  hisco-cat:99900 skos:member ?job .
+  hisco-cat:54010 skos:member ?job .
   ?job skos:prefLabel ?label .
   ?job prov:wasDerivedFrom ?provenance .
   
