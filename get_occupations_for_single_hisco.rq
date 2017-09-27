@@ -5,8 +5,8 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX hisco: <http://data.socialhistory.org/resource/hisco/>
-PREFIX hisco-cat: <http://data.socialhistory.org/resource/hisco/code/hisco/>
+PREFIX hisco: <https://iisg.amsterdam/hisco/>
+PREFIX hisco-cat: <https://iisg.amsterdam/hisco/code/hisco/>
 
 ## show all community coded entries for a given hisco (and their provenance)
 ## limited to a specific language

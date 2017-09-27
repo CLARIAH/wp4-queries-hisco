@@ -6,8 +6,8 @@
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX hisco: <http://data.socialhistory.org/resource/hisco/>
-PREFIX hiscam: <http://data.socialhistory.org/resource/hiscam/v131/>
+PREFIX hisco: <https://iisg.amsterdam/hisco/>
+PREFIX hiscam: <https://iisg.amsterdam/hiscam/v131/>
 
 SELECT distinct ?label ?hisco ?hiscam_value 
 WHERE {
