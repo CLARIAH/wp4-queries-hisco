@@ -1,1 +1,2 @@
-http://virtuoso.clariah-sdh.eculture.labs.vu.nl/sparql
+https://api.druid.datalegend.net/datasets/dataLegend/jobHoard/containers/Demo/sparql
+# http://virtuoso.clariah-sdh.eculture.labs.vu.nl/sparql
