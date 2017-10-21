@@ -1,0 +1,12 @@
+#+ summary: what are terms/concepts used in the HISCO vocabulary? 
+#+ tags:
+#+   - hisco
+#+   - vocabulary
+
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX hisco: <https://iisg.amsterdam/hisco/>
+
+SELECT DISTINCT ?terms
+WHERE { 
+  hisco:vocabulary skos:member ?terms .
+} 
