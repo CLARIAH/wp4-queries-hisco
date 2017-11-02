@@ -1,0 +1,18 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX hisco: <https://iisg.amsterdam/hisco/>
+PREFIX hiscam: <https://iisg.amsterdam/hiscam/v131/>
+PREFIX occhisco: <https://iisg.amsterdam/napp/OCCHISCO/>
+
+SELECT distinct ?occhisco ?hisco ?hiscam_value
+WHERE {
+ hisco:jobHoard skos:member ?job .
+ ?job skos:prefLabel ?label . # for standardized titles 
+ hisco:category skos:member ?hisco.
+ ?hisco skos:member ?job . 
+ ?occhisco skos:closeMatch ?hisco .
+ ?hisco hiscam:u1 ?hiscam_value .
+}
+ORDER BY ?hisco
+LIMIT 20
