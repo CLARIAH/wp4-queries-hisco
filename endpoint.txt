@@ -1,1 +1,1 @@
-https://api.druid.datalegend.net/datasets/dataLegend/jobHoard/containers/monitor/sparql
+https://api.druid.datalegend.net/datasets/dataLegend/jobHoard/services/monitor/sparql
