@@ -20,6 +20,11 @@ OPTIONAL {?sub admissie:Occupation_wife ?occwife } .
  ?occ2 hsn:hisclass ?hisclass .
  ?hisco skos:member ?occ2 .
  ?hisco skos:inScheme ?scheme .
- ?hisco skos:notation ?hisconr
+ ?hisco skos:notation ?hisconr .
 
+ # add wkt:Point to display on map:
+ # ?sub admissie:Origin ?origin .
+ # ?origin geo:asWKT ?geoloc. 
+        
+        
 }
