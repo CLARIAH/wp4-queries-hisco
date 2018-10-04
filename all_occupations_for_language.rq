@@ -1,0 +1,24 @@
+#+ summary: give all occupational titles in JobHoard for a given language and their HISCO URI's.
+#+ tags:
+#+      -hisco
+#+      -natural language
+
+PREFIX fn: <http://www.w3.org/2005/xpath-functions#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX hisco: <https://iisg.amsterdam/hisco/>
+PREFIX hisco-cat: <https://iisg.amsterdam/hisco/code/hisco/>
+
+SELECT DISTINCT ?code ?job ?label ?provenance
+WHERE { 
+  hisco:category skos:member ?code .
+  ?code skos:member ?job .
+  # hisco-cat:54010 skos:member ?job . # uncomment if you just want occ. titles for 1 specific HISCO
+  ?job skos:prefLabel ?label .
+  ?job prov:wasDerivedFrom ?provenance .
+  OPTIONAL {hisco:job skos:hiddenLabel ?label} # this provides you also with non-standardized occupational titles
+  FILTER(lang(?label) = "nl") 
+} 
+ORDER BY (fn:lower-case(?label))
+LIMIT 10 # only remove if you really want it all!
