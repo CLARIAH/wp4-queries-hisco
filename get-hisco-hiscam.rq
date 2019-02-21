@@ -9,7 +9,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX hisco: <https://iisg.amsterdam/hisco/>
 PREFIX hiscam: <https://iisg.amsterdam/hiscam/v131/>
 
-SELECT distinct ?_label ?hisco ?hiscam_value 
+SELECT distinct ?label ?hisco ?hiscam_value 
 WHERE {
  hisco:jobHoard skos:member ?job .
  ?job skos:prefLabel ?label . # for standardized titles 
@@ -17,7 +17,7 @@ WHERE {
  hisco:category skos:member ?hisco.
  ?hisco skos:member ?job . 
   #FILTER(lang(?label) = "es") . # filter on a given language, like "es", "nl", "se"
-  FILTER regex(?_label, "^ar", "i") . # uncomment this line if you want to filter for a specific (part of a) job title
+  FILTER regex(?label, "?_text", "i") . # uncomment this line if you want to filter for a specific (part of a) job title
  ?hisco hiscam:u1 ?hiscam_value .
 } 
 LIMIT 5
