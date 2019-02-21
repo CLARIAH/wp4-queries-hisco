@@ -17,7 +17,7 @@ WHERE {
  hisco:category skos:member ?hisco.
  ?hisco skos:member ?job . 
   #FILTER(lang(?label) = "es") . # filter on a given language, like "es", "nl", "se"
-  FILTER regex(?label, "^ar", "i") . # uncomment this line if you want to filter for a specific (part of a) job title
+  FILTER regex(?_label, "^ar", "i") . # uncomment this line if you want to filter for a specific (part of a) job title
  ?hisco hiscam:u1 ?hiscam_value .
 } 
-LIMIT 20
+LIMIT 5
