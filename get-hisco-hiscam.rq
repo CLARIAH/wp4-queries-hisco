@@ -16,8 +16,9 @@ WHERE {
  OPTIONAL {hisco:job skos:hiddenLabel ?label} . # comment this out if you're just looking for 'proper' occupational titles
  hisco:category skos:member ?hisco.
  ?hisco skos:member ?job . 
-  #FILTER(lang(?label) = "es") . # filter on a given language, like "es", "nl", "se"
-  FILTER regex(?label, ?_myOccupation_xsd_string, "i") . # uncomment this line if you want to filter for a specific (part of a) job title
+  FILTER(lang(?label) = ?__2letterLanguageTag_xsd_string) . # filter on a given language, like "es", "nl", "se"
+  FILTER regex(?label, ?_myOccupation_xsd_string) . # uncomment this line if you want to filter for a specific (part of a) job title
  ?hisco hiscam:u1 ?hiscam_value .
 } 
+ORDER BY (?label)
 LIMIT 5
